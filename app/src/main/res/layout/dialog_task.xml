@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/todo_business_category"
             android:checked="true"
-            android:text="@string/todo_dialog_business"
+            android:text="@string/todo_dialog_category_business"
             android:textColor="@color/white" />
 
         <RadioButton
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/todo_personal_category"
-            android:text="@string/todo_dialog_personal"
+            android:text="@string/todo_dialog_category_personal"
             android:textColor="@color/white" />
 
         <RadioButton
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/todo_other_category"
-            android:text="@string/todo_dialog_other"
+            android:text="@string/todo_dialog_category_other"
             android:textColor="@color/white" />
 
     </RadioGroup>

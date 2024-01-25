@@ -54,7 +54,7 @@ class TodoAppActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoriesAdapter
 
-        tasksAdapter = TasksAdapter(tasks)
+        tasksAdapter = TasksAdapter(tasks) { position -> onItemSelected(position) }
         // Si es vertical el linear lay, solo le pasamos el arg de context (this)
         rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = tasksAdapter
@@ -78,9 +78,9 @@ class TodoAppActivity : AppCompatActivity() {
                 // obteniendo el boton seleccionado
                 val selectedId = rgCategories.checkedRadioButtonId
                 val selectedRadioButton: RadioButton = rgCategories.findViewById(selectedId)
-                val currentCategory: TaskCategory = when(selectedRadioButton.text) {
-                    getString(R.string.todo_dialog_business) -> Business
-                    getString(R.string.todo_dialog_personal) -> Personal
+                val currentCategory: TaskCategory = when (selectedRadioButton.text) {
+                    getString(R.string.todo_dialog_category_business) -> Business
+                    getString(R.string.todo_dialog_category_personal) -> Personal
                     else -> Other
                 }
                 tasks.add(Task(currentTask, currentCategory))
@@ -92,7 +92,12 @@ class TodoAppActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun updateTasks(){
+    private fun onItemSelected(position: Int) {
+        tasks[position].isSelected = !tasks[position].isSelected
+        updateTasks()
+    }
+
+    private fun updateTasks() {
         tasksAdapter.notifyDataSetChanged()
     }
 }

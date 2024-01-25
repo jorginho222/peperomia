@@ -27,8 +27,8 @@
     <string name="todo_tasks">Tareas</string>
 
     <string name="todo_dialog_add_task_input">Nombre tarea</string>
-    <string name="todo_dialog_business">Negocios</string>
-    <string name="todo_dialog_personal">Personal</string>
-    <string name="todo_dialog_other">Otros</string>
+    <string name="todo_dialog_category_business">Negocios</string>
+    <string name="todo_dialog_category_personal">Personal</string>
+    <string name="todo_dialog_category_other">Otros</string>
     <string name="todo_dialog_create_task">Crear</string>
 </resources>
