@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.ivanur.peperomia.firstApp.FirstAppActivity
 import com.ivanur.peperomia.imcCalculator.ImcCalculatorActivity
+import com.ivanur.peperomia.todoApp.TodoAppActivity
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,8 +15,10 @@ class MenuActivity : AppCompatActivity() {
 
         val btnSaludApp = findViewById<Button>(R.id.btnSaludApp)
         val btnImcApp = findViewById<Button>(R.id.btnIMCApp)
+        val btnTODOApp = findViewById<Button>(R.id.btnTODO)
         btnSaludApp.setOnClickListener { navigateToSaludApp() }
         btnImcApp.setOnClickListener { navigateToImcApp() }
+        btnTODOApp.setOnClickListener { navigateToTODOApp() }
     }
 
     private fun navigateToSaludApp() {
@@ -25,6 +28,11 @@ class MenuActivity : AppCompatActivity() {
 
     private fun navigateToImcApp() {
         val intent = Intent(this, ImcCalculatorActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToTODOApp() {
+        val intent = Intent(this, TodoAppActivity::class.java)
         startActivity(intent)
     }
 }

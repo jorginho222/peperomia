@@ -11,6 +11,7 @@
 
     <string name="error">Error</string>
 
+    // imc
     <string name="title_low_weight">Bajo peso</string>
     <string name="description_low_weight">Estas por debajo de lo optimo para tu peso y altura</string>
     <string name="title_normal_weight">Normal</string>
@@ -19,4 +20,15 @@
     <string name="description_high_weight">Estas por encima de lo optimo para tu peso y altura</string>
     <string name="title_obesity">Obesidad</string>
     <string name="description_obesity">Estas muy por encima para tu peso y altura</string>
+
+    // todoapp
+    <string name="todo_title">A darle chicha!</string>
+    <string name="todo_categories">Categorias</string>
+    <string name="todo_tasks">Tareas</string>
+
+    <string name="todo_dialog_add_task_input">Nombre tarea</string>
+    <string name="todo_dialog_business">Negocios</string>
+    <string name="todo_dialog_personal">Personal</string>
+    <string name="todo_dialog_other">Otros</string>
+    <string name="todo_dialog_create_task">Crear</string>
 </resources>
