@@ -1,5 +1,6 @@
 package com.ivanur.peperomia.todoApp
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.Button
@@ -49,7 +50,7 @@ class TodoAppActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-        categoriesAdapter = CategoriesAdapter(categories)
+        categoriesAdapter = CategoriesAdapter(categories) { position -> updateCategories(position) }
         rvCategories.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoriesAdapter
@@ -97,7 +98,19 @@ class TodoAppActivity : AppCompatActivity() {
         updateTasks()
     }
 
+    private fun updateCategories(position: Int) {
+        categories[position].isSelected = !categories[position].isSelected
+        categoriesAdapter.notifyItemChanged(position)
+        updateTasks()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateTasks() {
+        val selectedCategories: List<TaskCategory> = categories.filter { category -> category.isSelected }
+        //        filter tasks that contains the selected categories
+        val newTasks = tasks.filter { selectedCategories.contains(it.category) }
+
+        tasksAdapter.tasks = newTasks
         tasksAdapter.notifyDataSetChanged()
     }
 }
