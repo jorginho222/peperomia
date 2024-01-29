@@ -1,21 +1,22 @@
 package com.ivanur.peperomia.recyclerViewExample
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.ivanur.peperomia.R
+import com.ivanur.peperomia.databinding.ActivityMainBinding
 import com.ivanur.peperomia.recyclerViewExample.adapter.SuperheroAdapter
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initRecyclerView()
     }
+
     fun initRecyclerView() {
-        val recyclerView = findViewById<RecyclerView>(R.id.rvSuperhero)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = SuperheroAdapter(SuperheroProvider.superherosList)
+        binding.rvSuperhero.layoutManager = LinearLayoutManager(this)
+        binding.rvSuperhero.adapter = SuperheroAdapter(SuperheroProvider.superherosList)
     }
 }
