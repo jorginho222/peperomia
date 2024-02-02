@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ivanur.peperomia.R
 import com.ivanur.peperomia.recyclerViewExample.Superhero
 
-class SuperheroAdapter(private val superheroList: List<Superhero>): RecyclerView.Adapter<SuperheroViewHolder>() {
+class SuperheroAdapter(private val superheroList: List<Superhero>, private val onClickListener: (Superhero) -> Unit): RecyclerView.Adapter<SuperheroViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return SuperheroViewHolder(layoutInflater.inflate(R.layout.item_superhero, parent, false))
@@ -16,7 +16,7 @@ class SuperheroAdapter(private val superheroList: List<Superhero>): RecyclerView
 
     override fun onBindViewHolder(holder: SuperheroViewHolder, position: Int) {
         val item = superheroList[position]
-        holder.render(item)
+        holder.render(item, onClickListener)
     }
 
 }
