@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-<!--    PEDIMOS Permiso para acceder a la internet (por ej, para cargar una url de una imagen)-->
+    <!-- PEDIMOS Permiso para acceder a la internet (por ej, para cargar una url de una imagen) -->
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:usesCleartextTraffic="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,14 +16,17 @@
         android:theme="@style/Theme.Peperomia"
         tools:targetApi="31">
         <activity
-            android:name=".recyclerViewExample.MainActivity"
-            android:exported="true">
+            android:name=".apiExample.MainActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".recyclerViewExample.MainActivity"
+            android:exported="true" />
         <activity
             android:name=".todoApp.TodoAppActivity"
             android:exported="false"
@@ -34,13 +39,7 @@
             android:exported="false" />
         <activity
             android:name=".MenuActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".firstApp.ResultActivity"
             android:exported="false" />
