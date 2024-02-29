@@ -3,7 +3,6 @@ package com.ivanur.peperomia.recyclerViewExample
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ivanur.peperomia.databinding.ActivityMainBinding
 import com.ivanur.peperomia.recyclerViewExample.adapter.SuperheroAdapter
@@ -17,20 +16,14 @@ class MainActivity : AppCompatActivity() {
         initRecyclerView()
     }
 
-    private fun initRecyclerView() {
-        val manager = LinearLayoutManager(this)
-        val decoration = DividerItemDecoration(this, manager.orientation)
-
-        binding.rvSuperhero.layoutManager = manager
-        binding.rvSuperhero.adapter =
-            SuperheroAdapter(
-                SuperheroProvider.superherosList
-            ) { superhero -> onItemSelected(superhero) }
-
-        binding.rvSuperhero.addItemDecoration(decoration)
+    fun initRecyclerView() {
+        binding.rvSuperhero.layoutManager = LinearLayoutManager(this)
+        binding.rvSuperhero.adapter = SuperheroAdapter(
+            SuperheroProvider.superherosList
+        ) { superhero -> onItemSelected(superhero) }
     }
 
-    private fun onItemSelected(superhero: Superhero) {
+    fun onItemSelected(superhero: Superhero) {
         Toast.makeText(this, superhero.superhero, Toast.LENGTH_SHORT).show()
     }
 }

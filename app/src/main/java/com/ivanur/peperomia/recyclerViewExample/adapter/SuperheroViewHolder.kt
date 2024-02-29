@@ -17,6 +17,7 @@ class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // cargando la imagen a partir de la url con glide
         Glide.with(binding.ivSuperhero.context).load(superheroModel.photo).into(binding.ivSuperhero)
 
+        // item view hace referencia a toda la celda, del Item de la lista de superheros. Le paso el obj superheroModel a la fcion lambda
         itemView.setOnClickListener { onClickListener(superheroModel) }
     }
 }
